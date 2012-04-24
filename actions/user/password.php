@@ -44,7 +44,7 @@ if (($user) && ($password != "")) {
 	}
 
 	if (strlen($password) >= $minlength) {
-		if ($password == $password2) {
+		if ($password == $password2 && $current_password != $password) {
 			if($enabled){
 				if(get_plugin_setting("minCheck","password_change") == "yes"){
 					$ret = checkPassword($password);
@@ -66,6 +66,9 @@ if (($user) && ($password != "")) {
 			} else {
 				register_error(elgg_echo('user:password:fail'));
 			}
+		} else if($current_password == $password){
+			register_error(elgg_echo('passwordchange:same'));
+			forward($_SERVER['HTTP_REFERER']);
 		} else {
 			register_error(elgg_echo('user:password:fail:notsame'));
 		}
