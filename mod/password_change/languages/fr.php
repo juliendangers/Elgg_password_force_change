@@ -19,7 +19,8 @@
 			'Strong'=>"Fort",
 			'Too strong'=>"Très fort",
 			'passwordchanger:minlength'=>"Nombre minimum de charactères",
-			'passwordchanger:unsafe'=>"Mot de passe interdit" //Unsafe password word
+			'passwordchange:same' => "Vous devez créer un nouveau mot de passe",
+			'passwordchanger:unsafe'=>"Mot de passe interdit"
 	);
 					
 	add_translation("fr",$french);
