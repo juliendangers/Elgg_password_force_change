@@ -1,27 +1,25 @@
 <?php
 	/**
-	 * Scoop It plugin language pack
+	 * Password change language pack
 	 * 
-	 * @package scoopit
 	 */
 
 	$french = array(
 	
-		/**
-		 * Menu items and titles
-		 */
-			
-			'passwordchange:length'=>"Longueur minimale du mot de passe",
-			'passwordchange:dayslong'=>"Durée de validité du mot de passe (en jours)",
-			'passwordchange:strengh'=>"Activer la vérification de la force du mot de passe",
-			'passwordchange:common' => "Votre mot de passe est trop commun! Veuillez le modifier.",
-			'passwordchange:tooweak' => "Mot de passe trop faible. Vous pouvez ajouter des majuscules et des chiffres!",
+			'passwordchanger:renew' => "La durée de validité de votre mot de passe est expirée, vous devez le modifier avant de pouvoir continuer",
+			'passwordchanger:length'=>"Longueur minimale du mot de passe",
+			'passwordchanger:dayslong'=>"Durée de validité du mot de passe (en jours)",
+			'passwordchanger:strengh'=>"Activer la vérification de la force du mot de passe",
+			'passwordchanger:common' => "Votre mot de passe est trop faible! Veuillez le modifier.",
+			'passwordchanger:tooweak' => "Mot de passe trop faible. Vous pouvez ajouter des majuscules et/ou des chiffres!",
+			'Too short' => "Trop court",
 			'Too weak' =>"Très faible",
 			'Weak'=>"Faible",
 			'Medium'=>"Moyen",
 			'Strong'=>"Fort",
-			'Very strong'=>"Très fort",
-			'passwordchange:minlength'=>"Nombre minimum de charactères"
+			'Too strong'=>"Très fort",
+			'passwordchanger:minlength'=>"Nombre minimum de charactères",
+			'passwordchanger:unsafe'=>"Mot de passe interdit" //Unsafe password word
 	);
 					
 	add_translation("fr",$french);

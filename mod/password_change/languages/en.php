@@ -1,0 +1,25 @@
+<?php
+	/**
+	 * Password change language pack
+	 * 
+	 */
+
+	$english = array(
+	
+			'passwordchanger:renew' => "Your password expired, You have to create a new one to continue",
+			'passwordchange:length'=>"Minimum password length",
+			'passwordchange:dayslong'=>"Password validity (in days)",
+			'passwordchange:strengh'=>"Check password strength",
+			'passwordchange:common' => "Unsafe password! You have to change it.",
+			'passwordchange:tooweak' => "Password too weak!",
+			'Too weak' =>"Too weak",
+			'Weak'=>"Weak",
+			'Medium'=>"Medium",
+			'Strong'=>"Strong",
+			'Very strong'=>"Very strong",
+			'passwordchange:minlength'=>"Nombre minimum de charactères",
+			'passwordchanger:unsafe'=>"Unsafe password word"
+	);
+					
+	add_translation("en",$english);
+?>
