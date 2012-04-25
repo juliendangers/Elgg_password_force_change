@@ -9,14 +9,8 @@
 gatekeeper();
 
 $minlength = 4;
-$enabled = true;
-
-if(is_plugin_enabled("password_change"))
-	$enabled = true;
 	
-if($enabled){
-	$minlength = get_plugin_setting("minlength","password_change");
-}
+$minlength = get_plugin_setting("minlength","password_change");
 
 $current_password = get_input('current_password');
 $password = get_input('password');
@@ -45,22 +39,19 @@ if (($user) && ($password != "")) {
 
 	if (strlen($password) >= $minlength) {
 		if ($password == $password2 && $current_password != $password) {
-			if($enabled){
-				if(get_plugin_setting("minCheck","password_change") == "yes"){
-					$ret = checkPassword($password);
-					if($ret == -200){
-						register_error(elgg_echo('passwordchange:common'));
-						forward($_SERVER['HTTP_REFERER']);
-					} else if($ret < 16 ){
-						register_error(elgg_echo('passwordchange:tooweak'));
-						forward($_SERVER['HTTP_REFERER']);
-					} 
-				}
+			if(get_plugin_setting("minCheck","password_change") == "yes"){
+				$ret = checkPassword($password);
+				if($ret == -200){
+					register_error(elgg_echo('passwordchange:common'));
+					forward($_SERVER['HTTP_REFERER']);
+				} else if($ret < 16 ){
+					register_error(elgg_echo('passwordchange:tooweak'));
+					forward($_SERVER['HTTP_REFERER']);
+				} 
 			}
 			$user->salt = generate_random_cleartext_password(); // Reset the salt
 			$user->password = generate_user_password($user, $password);
-			if($enabled)
-				$user->lastPwdChange = time();
+			$user->lastPwdChange = time();
 			if ($user->save()) {
 				system_message(elgg_echo('user:password:success'));
 			} else {

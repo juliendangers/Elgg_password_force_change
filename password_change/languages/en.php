@@ -6,7 +6,7 @@
 
 	$english = array(
 	
-			'passwordchanger:renew' => "Your password expired, You have to create a new one to continue",
+			'passwordchange:renew' => "Your password expired, You have to create a new one to continue",
 			'passwordchange:length'=>"Minimum password length",
 			'passwordchange:dayslong'=>"Password validity (in days)",
 			'passwordchange:strengh'=>"Check password strength",
@@ -20,7 +20,7 @@
 			'Very strong'=>"Very strong",
 			'passwordchange:minlength'=>"Nombre minimum de charactères",
 			'passwordchange:same' => "Current password and new password must be different",
-			'passwordchanger:unsafe'=>"Unsafe password word",
+			'passwordchange:unsafe'=>"Unsafe password word",
 			'passwordchange:start'=>"Set time_created as start date (default is next connection after the activation of the plugin)? Will force older users to change their password immediately."
 	);
 					

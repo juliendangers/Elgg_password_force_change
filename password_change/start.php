@@ -26,8 +26,20 @@
 				forward("pg/settings/user/".$user->username);
 			}
 		}
+		unregister_plugin_hook('usersettings:save','user','users_settings_save');
+		
+		register_plugin_hook('usersettings:save','user','pc_users_settings_save');
 	}
 	
+	function pc_users_settings_save() {
+		global $CONFIG;
+		include($CONFIG->path . "actions/user/name.php");
+		include($CONFIG->path . "mod/password_change/actions/user/password.php");
+		include($CONFIG->path . "actions/email/save.php");
+		include($CONFIG->path . "actions/user/language.php");
+		include($CONFIG->path . "actions/user/default_access.php");
+	}
+
 	function checkPassword($C) {
             $F = 0;
 			$B = get_plugin_setting('minlength');
