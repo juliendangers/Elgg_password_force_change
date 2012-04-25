@@ -20,7 +20,8 @@
 			'Too strong'=>"Très fort",
 			'passwordchanger:minlength'=>"Nombre minimum de charactères",
 			'passwordchange:same' => "Vous devez créer un nouveau mot de passe",
-			'passwordchanger:unsafe'=>"Mot de passe interdit"
+			'passwordchanger:unsafe'=>"Mot de passe interdit",
+			'passwordchange:start'=>"Utiliser la date d'inscription comme date de départ (par défaut la date de connexion après l'activation sera utilisée)? Tous les utilisateurs s'étant inscrit avant la période choisie devront redéfinir leur mot de passe lors de leur prochaine connexion."
 	);
 					
 	add_translation("fr",$french);

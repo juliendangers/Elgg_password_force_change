@@ -10,6 +10,9 @@
 	if ($vars['entity']->dayslong)
 		$days = $vars['entity']->dayslong;
 
+	$start = "no";
+	if ($vars['entity']->begin)
+		$start = $vars['entity']->begin;
 ?>
 <p>
 	<?php echo elgg_echo('passwordchange:length'); ?>
@@ -23,4 +26,7 @@
 </p>
 <p><span><?php echo elgg_echo('passwordchange:strengh'); ?></span>
 	<?php echo elgg_view('input/radio', array('internalname' => 'params[strengh]','class' => ' ', 'value' => $strengh, 'options' => array("yes","no"))); ?>
+</p>
+<p><span><?php echo elgg_echo('passwordchange:start'); ?></span>
+	<?php echo elgg_view('input/radio', array('internalname' => 'params[begin]','class' => ' ', 'value' => $start, 'options' => array("yes","no"))); ?>
 </p>

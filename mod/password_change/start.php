@@ -13,7 +13,10 @@
 		$user = get_loggedin_user();
 		if($_SERVER['REQUEST_URI'] != "/pg/settings/user/".$user->username && $_SERVER['REQUEST_URI'] != "/action/usersettings/save" && $_SERVER['REQUEST_URI'] != "/mod/password_change/jquery_strength_check.php") {
 			if(!$user->lastPwdChange) {
-				$user->lastPwdChange = $user->time_created;
+				if(get_plugin_setting("begin"))
+					$user->lastPwdChange = $user->time_created;
+				else
+					$user->lastPwdChange = time();
 				$user->save();	
 			}
 			$diff = date_diff(date_create(date("Y-m-d", $user->lastPwdChange)),date_create(date("Y-m-d")) );
