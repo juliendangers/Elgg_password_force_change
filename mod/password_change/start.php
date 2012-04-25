@@ -4,7 +4,7 @@
 	{
 		global $CONFIG;
 		
-		if(isloggedin()) {
+		if(isloggedin() && !isadminloggedin()) {
 			password_check_change();
 	    }
 	}
