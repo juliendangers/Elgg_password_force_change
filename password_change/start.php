@@ -1,4 +1,9 @@
 <?php
+	if (!defined('PHP_VERSION_ID')) {
+		$version = explode('.', PHP_VERSION);
+	
+		define('PHP_VERSION_ID', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
+	}
 	
 	function passwordchange_init() 
 	{
@@ -19,8 +24,14 @@
 					$user->lastPwdChange = time();
 				$user->save();	
 			}
-			$diff = date_diff(date_create(date("Y-m-d", $user->lastPwdChange)),date_create(date("Y-m-d")) );
-			$days = (int) $diff->format('%a');
+			if (PHP_VERSION_ID < 50300) {
+				$lastchange = date_create(date("Y-m-d", $user->lastPwdChange));
+				$today = new DateTime();
+				$days = round(abs($today->format('U') - $lastchange->format('U')) / (60*60*24));
+			} else {
+				$diff = date_diff(date_create(date("Y-m-d", $user->lastPwdChange)),date_create(date("Y-m-d")) );
+				$days = (int) $diff->format('%a');
+			}
 			if($days > 60) {
 				system_message(elgg_echo("passwordchange:renew"));
 				forward("pg/settings/user/".$user->username);
